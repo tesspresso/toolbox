@@ -1,7 +1,7 @@
 {
-  "name": "boilermaker",
+  "name": "toolbox",
   "version": "1.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "A collaborative community built to provide support during your period.",
   "engines": {
     "node": ">= 7.0.0"
   },
