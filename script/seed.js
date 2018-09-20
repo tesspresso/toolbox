@@ -18,7 +18,8 @@ async function seed() {
 
   const symptoms = await Promise.all([
     Symptom.create({name: 'cramps', category: 'physical'}),
-    Symptom.create({name: 'sleeplessness', category: 'physical'})
+    Symptom.create({name: 'sleeplessness', category: 'physical'}),
+    Symptom.create({name: 'high stress', category: 'menemo'})
   ])
 
   const solutions = await Promise.all([
@@ -44,7 +45,10 @@ async function seed() {
     SympSol.create({symptomId: 1, solutionId: 2}),
     SympSol.create({symptomId: 1, solutionId: 3}),
     SympSol.create({symptomId: 2, solutionId: 1}),
-    SympSol.create({symptomId: 2, solutionId: 3})
+    SympSol.create({symptomId: 2, solutionId: 3}),
+    SympSol.create({symptomId: 3, solutionId: 1}),
+    SympSol.create({symptomId: 3, solutionId: 2}),
+    SympSol.create({symptomId: 3, solutionId: 3})
   ])
 
   console.log(`seeded ${users.length} users`)

@@ -7,8 +7,24 @@ const Symptom = db.define('symptom', {
     allowNull: false
   },
   category: {
-    type: Sequelize.ENUM('physical', 'mental/emotional')
+    type: Sequelize.ENUM('physical', 'menemo')
   }
 })
+
+// Symptom.findPhysical = function() {
+//   return this.findAll({
+//     where: {
+//       category: 'physical'
+//     }
+//   })
+// }
+
+// Symptom.findMenEmo = function() {
+//   return this.findAll({
+//     where: {
+//       category: 'mental/emotional'
+//     }
+//   })
+// }
 
 module.exports = Symptom
