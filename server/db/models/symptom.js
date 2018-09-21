@@ -11,23 +11,4 @@ const Symptom = db.define('symptom', {
   }
 })
 
-// Symptom.returnNames = function(arr){
-//   return arr.forEach(symp => symp.name)
-// }
-// Symptom.findPhysical = function() {
-//   return this.findAll({
-//     where: {
-//       category: 'physical'
-//     }
-//   })
-// }
-
-// Symptom.findMenEmo = function() {
-//   return this.findAll({
-//     where: {
-//       category: 'mental/emotional'
-//     }
-//   })
-// }
-
 module.exports = Symptom

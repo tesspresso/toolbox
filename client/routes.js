@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, DropdownMenu, SymptomChoice} from './components'
+import {Login, Signup, DropdownMenu, SymptomChoice, SolutionsList} from './components'
 import {me} from './store'
 
 /**
@@ -23,7 +23,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/symptoms" component={SymptomChoice} />
         <Route exact path="/symptoms/:type" component={DropdownMenu} />
-        {/* <Route exact path="/symptoms/physical" component={DropdownMenu} /> */}
+        <Route exact path="/symptoms/:type/:symptomId" component={SolutionsList} />
 
         {/* {isLoggedIn && (
           <Switch> */}
