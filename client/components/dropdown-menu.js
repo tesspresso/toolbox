@@ -39,7 +39,7 @@ class DropdownMenu extends React.Component {
 
     return (
       <Container textAlign="center">
-        <h3>Choose from the physical symptoms below:</h3>
+        <h3>Choose from the symptoms below:</h3>
         <span />
         <Dropdown
           onChange={this.handleChange}

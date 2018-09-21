@@ -4,8 +4,9 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import symptoms from './symptoms'
+import solutions from './solutions'
 
-const reducer = combineReducers({user, symptoms})
+const reducer = combineReducers({user, symptoms, solutions})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )
@@ -14,3 +15,4 @@ const store = createStore(reducer, middleware)
 export default store
 export * from './user'
 export * from './symptoms'
+export * from './solutions'
