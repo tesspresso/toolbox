@@ -11,6 +11,9 @@ const Symptom = db.define('symptom', {
   }
 })
 
+// Symptom.returnNames = function(arr){
+//   return arr.forEach(symp => symp.name)
+// }
 // Symptom.findPhysical = function() {
 //   return this.findAll({
 //     where: {
