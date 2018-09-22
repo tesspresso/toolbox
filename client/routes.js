@@ -2,7 +2,14 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, DropdownMenu, SymptomChoice, SolutionsList} from './components'
+import {
+  LandingPage,
+  Login,
+  Signup,
+  DropdownMenu,
+  SymptomChoice,
+  SolutionsList
+} from './components'
 import {me} from './store'
 
 /**
@@ -19,20 +26,23 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/symptoms" component={SymptomChoice} />
-        <Route exact path="/symptoms/:type" component={DropdownMenu} />
-        <Route exact path="/symptoms/:type/:symptomId" component={SolutionsList} />
-
-        {/* {isLoggedIn && (
-          <Switch> */}
-        {/* Routes placed here are only available after logging in */}
-        {/* <Route path="/home" component={UserHome} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/" component={LandingPage} />
+        {/* <Route exact path="/signup" component={Signup} /> */}
+        {isLoggedIn && (
+          <Switch>
+            {/* Routes placed here are only available after logging in */}
+            <Route exact path="/symptoms" component={SymptomChoice} />
+            <Route exact path="/symptoms/:type" component={DropdownMenu} />
+            <Route
+              exact
+              path="/symptoms/:type/:symptomId"
+              component={SolutionsList}
+            />
           </Switch>
-        )} */}
-        {/* Displays our Login component as a fallback */}
-        <Route component={Login} />
+        )}
+        <Route component={404} />
       </Switch>
     )
   }

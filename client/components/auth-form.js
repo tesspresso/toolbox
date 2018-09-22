@@ -2,46 +2,51 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {Divider, Container, Header, Input} from 'semantic-ui-react'
+import {Container, Input, Form, Button} from 'semantic-ui-react'
 
 /**
  * COMPONENT
  */
-const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+export class AuthForm extends React.Component {
 
-  return (
-    <Container textAlign="center">
-      <Header as="h1">TOOLBOX</Header>
-      <Header as="h2">
-        A collaborative community that supports you during your period.
-      </Header>
-      <Divider />
-      <h4>Please login or sign up below to access the trove:</h4>
-      <form onSubmit={handleSubmit} name={name}>
-        <Input focus placeholder="type your email" />
-        <Input focus placeholder="type your password" />
+  google = () => {
+    this.props.history.push('/auth/google')
+  }
 
-        {/* <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div> */}
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
-    </Container>
-  )
+  render() {
+    const {name, displayName, handleSubmit, error} = this.props
+    return (
+      <Container textAlign="center">
+        <h4>Give us the deets!:</h4>
+        <Form onSubmit={handleSubmit} name={name}>
+          {displayName === 'Sign Up' ? (
+            <Form.Field>
+              <input
+                placeholder="preferred name"
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          ) : (
+            <span />
+          )}
+          <Form.Field>
+            <input placeholder="email address" name="email" type="text"/>
+          </Form.Field>
+          <Form.Field>
+            <input placeholder="password" name="password" type="password"/>
+          </Form.Field>
+          <div>
+            <Button type="submit">{displayName}</Button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+          <div>- OR -</div>
+        </Form>
+        <Button onClick={this.google}>
+            {displayName} with Google
+          </Button>
+      </Container>
+    )
+  }
 }
 
 /**

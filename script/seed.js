@@ -10,8 +10,13 @@ async function seed() {
 
   const users = await Promise.all([
     User.create({
-      name: 'tess',
+      name: 'Tess',
       email: 'tesswolterstorff@gmail.com',
+      password: '123'
+    }),
+    User.create({
+      name: 'Tugce',
+      email: 'tugce.coskun27@gmail.com',
       password: '123'
     })
   ])
@@ -19,12 +24,29 @@ async function seed() {
   const symptoms = await Promise.all([
     Symptom.create({name: 'cramps', category: 'physical'}),
     Symptom.create({name: 'sleeplessness', category: 'physical'}),
-    Symptom.create({name: 'high stress', category: 'menemo'})
+    Symptom.create({name: 'high stress', category: 'menemo'}),
+    Symptom.create({name: 'loose bowels', category: 'physical'}),
+    Symptom.create({name: 'acne', category: 'physical'}),
+    Symptom.create({name: 'bloating', category: 'physical'}),
+    Symptom.create({name: 'heavy flow', category: 'physical'}),
+    Symptom.create({name: 'low energy', category: 'physical'}),
+    Symptom.create({name: 'increased libido', category: 'physical'}),
+    Symptom.create({name: 'headache', category: 'physical'}),
+    Symptom.create({name: 'heartburn', category: 'physical'}),
+    Symptom.create({name: 'nausea & vomiting', category: 'physical'}),
+    Symptom.create({name: 'sore breasts', category: 'physical'}),
+    Symptom.create({name: 'cravings', category: 'physical'}),
+    Symptom.create({name: 'increased appetite', category: 'physical'}),
+    Symptom.create({name: 'leakage', category: 'physical'}),
+    Symptom.create({name: 'worsened focus', category: 'menemo'}),
+    Symptom.create({name: 'self-consciousness', category: 'menemo'}),
+    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'}),
+
   ])
 
   const solutions = await Promise.all([
     Solution.create({
-      name: 'marijuana',
+      name: 'edibles',
       description: 'blah blah blah',
       likecount: 0
     }),
@@ -37,7 +59,92 @@ async function seed() {
       name: 'avoid caffeine',
       description: 'blah blah blah',
       likecount: 0
-    })
+    }),
+    Solution.create({
+      name: 'bubble bath',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'iron-rich foods',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'iron supplement',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'exercise',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'alone time',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'indulge your cravings',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'ocean noises',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'extra sleep',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'herbal tea',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'avoid alcohol',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'heating pad',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'stay hydrated',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'use a tracking app',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'healthy foods',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'painkillers',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'stay in bed',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
+    Solution.create({
+      name: 'write',
+      description: 'blah blah blah',
+      likecount: 0
+    }),
   ])
 
   const sympsol = await Promise.all([
