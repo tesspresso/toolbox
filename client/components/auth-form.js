@@ -2,36 +2,51 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {Container, Input, Form, Button} from 'semantic-ui-react'
 
 /**
  * COMPONENT
  */
-const AuthForm = props => {
-  const {name, displayName, handleSubmit, error} = props
+export class AuthForm extends React.Component {
 
-  return (
-    <div>
-      <form onSubmit={handleSubmit} name={name}>
-        <div>
-          <label htmlFor="email">
-            <small>Email</small>
-          </label>
-          <input name="email" type="text" />
-        </div>
-        <div>
-          <label htmlFor="password">
-            <small>Password</small>
-          </label>
-          <input name="password" type="password" />
-        </div>
-        <div>
-          <button type="submit">{displayName}</button>
-        </div>
-        {error && error.response && <div> {error.response.data} </div>}
-      </form>
-      <a href="/auth/google">{displayName} with Google</a>
-    </div>
-  )
+  google = () => {
+    this.props.history.push('/auth/google')
+  }
+
+  render() {
+    const {name, displayName, handleSubmit, error} = this.props
+    return (
+      <Container textAlign="center">
+        <h4>Give us the deets!:</h4>
+        <Form onSubmit={handleSubmit} name={name}>
+          {displayName === 'Sign Up' ? (
+            <Form.Field>
+              <input
+                placeholder="preferred name"
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          ) : (
+            <span />
+          )}
+          <Form.Field>
+            <input placeholder="email address" name="email" type="text"/>
+          </Form.Field>
+          <Form.Field>
+            <input placeholder="password" name="password" type="password"/>
+          </Form.Field>
+          <div>
+            <Button type="submit">{displayName}</Button>
+          </div>
+          {error && error.response && <div> {error.response.data} </div>}
+          <div>- OR -</div>
+        </Form>
+        <Button onClick={this.google}>
+            {displayName} with Google
+          </Button>
+      </Container>
+    )
+  }
 }
 
 /**
