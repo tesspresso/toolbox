@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {connect} from 'react-redux'
+// import {connect} from 'react-redux'
 import {Button, Container} from 'semantic-ui-react'
 
 export class SymptomChoice extends React.Component {
@@ -27,13 +27,13 @@ export class SymptomChoice extends React.Component {
   }
 }
 
-const mapState = state => {
-  return {
-    name: state.user.name
-  }
-}
+// const mapState = state => {
+//   return {
+//     name: state.user.name
+//   }
+// }
 
-export default connect(mapState)(SymptomChoice)
+export default SymptomChoice
 
 SymptomChoice.propTypes = {
   name: PropTypes.string

@@ -1,36 +1,38 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {
-  fetchSolutionsFromDB,
-  updateLikeCount,
-} from '../store/solutions'
+import {fetchSolutionsFromDB, updateLikeCount} from '../store/solutions'
 import AddSol from './add-sol'
-import {
-  Card,
-  Container,
-  Button,
-  Icon,
-} from 'semantic-ui-react'
+import {Card, Container, Button, Icon} from 'semantic-ui-react'
 
 export class SolutionsList extends React.Component {
-
-async componentDidMount() {
+  async componentDidMount() {
     await this.props.getSolutions(
       this.props.match.params.type,
       this.props.match.params.symptomId
     )
   }
 
-  handleClick = event => {
+  handleClick = async (event, data) => {
     event.preventDefault()
     let likeCount = event.target.textContent
+    const solId = data.value
+    const {type, symptomId} = this.props.match.params
     likeCount++
-    console.log('EVENT VALUE', event.target.value)
-    console.log('LIKECOUNT', likeCount)
-    // const solution = this.props.solutions.filter(
-    //   sol => sol.name === this.state.selectedSol
-    // )
-    // await this.props.updateLike(solution[0].id, likecount)
+    console.log(
+      'TYPE=>',
+      type,
+      'SYMPID=>',
+      symptomId,
+      'SOLID=>',
+      solId,
+      'LIKECOUNT=>',
+      likeCount
+    )
+    await this.props.updateLike(type, symptomId, solId, likeCount)
+    await this.props.getSolutions(
+      this.props.match.params.type,
+      this.props.match.params.symptomId
+    )
   }
 
   render() {
@@ -46,6 +48,7 @@ async componentDidMount() {
               </Card.Content>
               <Button
                 onClick={this.handleClick}
+                value={sol.id}
                 animated
                 attached="bottom"
                 color="google plus"
@@ -53,14 +56,12 @@ async componentDidMount() {
                 <Button.Content visible>
                   <Icon name="heart" />
                 </Button.Content>
-                <Button.Content hidden value={sol.id}>
-                  {sol.likecount}
-                </Button.Content>
+                <Button.Content hidden>{sol.likecount}</Button.Content>
               </Button>
             </Card>
           ))}
         </Card.Group>
-        <AddSol/>
+        <AddSol />
       </Container>
     )
   }
@@ -72,7 +73,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getSolutions: (type, id) => dispatch(fetchSolutionsFromDB(type, id)),
-  updateLike: (id, likecount) => dispatch(updateLikeCount(id, likecount)),
+  updateLike: (type, sympId, solId, likeCount) =>
+    dispatch(updateLikeCount(type, sympId, solId, likeCount))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SolutionsList)

@@ -37,13 +37,16 @@ router.get('/:type/:symptomId', async (req, res, next) => {
   }
 })
 
-// api/symptoms/:type/:sympid/:solId
+// api/symptoms/:type/:sympid
 // updates like count of single solution
-router.put('/:type/:symptomId/:solutionId', async (req, res, next) => {
+router.put('/:type/:symptomId/', async (req, res, next) => {
   try {
-    const solution = await Solution.findById(req.params.id)
-    const updatedSolution = await solution.update(req.body)
-    res.json(updatedSolution)
+    const updateInfo = {
+      likecount: req.body.likeCount
+    }
+    const solution = await Solution.findById(req.body.solId)
+    await solution.update(updateInfo)
+    res.sendStatus(202)
   } catch (err) {
     next(err)
   }

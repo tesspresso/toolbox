@@ -56,3 +56,6 @@ const symptoms = (state = [], action) => {
 }
 
 export default symptoms
+
+
+

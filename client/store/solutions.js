@@ -39,12 +39,12 @@ export const fetchSolutionsFromDB = (type, id) => {
   }
 }
 
-export const updateLikeCount = (id, likecount) => {
+export const updateLikeCount = (type, sympId, solId, likeCount) => {
   return async dispatch => {
     try {
       const {data: solution} = await axios.put(
-        `/api/solutions/${id}`,
-        likecount
+        `/api/symptoms/${type}/${sympId}`,
+        {solId, likeCount}
       )
       dispatch(gotUpdatedSolution(solution))
     } catch (error) {
