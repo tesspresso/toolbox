@@ -1,28 +1,37 @@
 import React from 'react'
-import {Container, Header, Button} from 'semantic-ui-react'
+import {Link} from 'react-router-dom'
+import {
+  Container,
+  Header,
+  Button,
+  Divider,
+  Icon,
+} from 'semantic-ui-react'
 
-export class LandingPage extends React.Component {
-  signup = () => {
-    this.props.history.push('/signup')
-  }
-
-  login = () => {
-    this.props.history.push('/login')
-  }
-
+class LandingPage extends React.Component {
   render() {
-    console.log('Im rendering!!')
     return (
-      <Container textAlign="center">
-        <Header as="h1">TOOLBOX</Header>
-        <Header as="h2">
-          A collaborative community that supports you during your period.
-        </Header>
-        <Button.Group>
-          <Button onClick={this.signup}>Sign Up </Button>
-          <Button.Or />
-          <Button onClick={this.login}>Log In</Button>
-        </Button.Group>
+      <Container>
+        <Container textAlign="center">
+          <Header size="huge">TOOLBOX</Header>
+          <Icon size="huge" loading name="cog" />
+          <Header size="large">
+            A collaborative community that supports you during your period.
+          </Header>
+          <Divider />
+          <Header size="medium">
+            What type of symptom is troubling you today?
+          </Header>
+          <Button.Group size="large">
+            <Button as={Link} to="/symptoms/physical" color="teal">
+              physical
+            </Button>
+            <Button.Or />
+            <Button as={Link} to="/symptoms/menemo" color="teal">
+              mental/emotional
+            </Button>
+          </Button.Group>
+        </Container>
       </Container>
     )
   }

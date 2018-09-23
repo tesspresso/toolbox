@@ -2,60 +2,48 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
-import {Container, Input, Form, Button} from 'semantic-ui-react'
+import {Container, Form, Button} from 'semantic-ui-react'
 
-/**
- * COMPONENT
- */
 export class AuthForm extends React.Component {
-
   google = () => {
     this.props.history.push('/auth/google')
   }
 
   render() {
+    console.log('EVENT.TARGET', event.target)
     const {name, displayName, handleSubmit, error} = this.props
     return (
       <Container textAlign="center">
         <h4>Give us the deets!:</h4>
         <Form onSubmit={handleSubmit} name={name}>
-          {displayName === 'Sign Up' ? (
-            <Form.Field>
-              <input
+          <Form.Group widths="equal">
+            {displayName === 'Sign Up' ? (
+              <Form.Input
                 placeholder="preferred name"
                 onChange={this.handleChange}
               />
-            </Form.Field>
-          ) : (
-            <span />
-          )}
-          <Form.Field>
-            <input placeholder="email address" name="email" type="text"/>
-          </Form.Field>
-          <Form.Field>
-            <input placeholder="password" name="password" type="password"/>
-          </Form.Field>
-          <div>
-            <Button type="submit">{displayName}</Button>
-          </div>
+            ) : (
+              <span />
+            )}
+            <Form.Input placeholder="email address" name="email" type="text" />
+            <Form.Input
+              placeholder="password"
+              name="password"
+              type="password"
+            />
+          </Form.Group>
+          <Form.Button circular type="submit" content={displayName} />
           {error && error.response && <div> {error.response.data} </div>}
           <div>- OR -</div>
         </Form>
-        <Button onClick={this.google}>
-            {displayName} with Google
-          </Button>
+        <Button circular onClick={this.google}>
+          {displayName} with Google
+        </Button>
       </Container>
     )
   }
 }
 
-/**
- * CONTAINER
- *   Note that we have two different sets of 'mapStateToProps' functions -
- *   one for Login, and one for Signup. However, they share the same 'mapDispatchToProps'
- *   function, and share the same Component. This is a good example of how we
- *   can stay DRY with interfaces that are very similar to each other!
- */
 const mapLogin = state => {
   return {
     name: 'login',

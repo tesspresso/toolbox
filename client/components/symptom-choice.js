@@ -15,9 +15,9 @@ export class SymptomChoice extends React.Component {
   render() {
     return (
       <Container textAlign="center">
-        <h3>Welcome, *fill in name here*</h3>
+        <h3>Welcome, {this.props.name}</h3>
         <h4>What type of symptom is troubling you today?</h4>
-        <Button.Group>
+        <Button.Group size="large">
           <Button onClick={this.redirectToPhys}>physical </Button>
           <Button.Or />
           <Button onClick={this.redirectToMenEmo}>mental/emotional</Button>

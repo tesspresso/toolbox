@@ -34,3 +34,30 @@ router.get('/:type/:symptomId', async (req, res, next) => {
     next(err)
   }
 })
+
+// api/symptoms/:type/:sympid/:solId
+// updates like count of single solution
+router.put('/:type/:symptomId/:solutionId', async (req, res, next) => {
+  try {
+    const solution = await Solution.findById(req.params.id)
+    const updatedSolution = await solution.update(req.body)
+    res.json(updatedSolution)
+  } catch (err) {
+    next(err)
+  }
+})
+
+// api/symptoms/:type
+// adds a new symptom
+router.post('/:type', async (req, res, next) => {
+  const symptom = {
+    name: req.body.symptom,
+    category: req.body.type
+  }
+  try {
+    await Symptom.create(symptom)
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})

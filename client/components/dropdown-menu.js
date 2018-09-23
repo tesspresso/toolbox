@@ -1,8 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Dropdown, Container, Form} from 'semantic-ui-react'
+import {
+  Select,
+  Container,
+  Form,
+  Segment,
+  Header
+} from 'semantic-ui-react'
 import {fetchSymptomsFromDB} from '../store/symptoms'
 import solution from '../../utils'
+import AddForm from './add-form'
 
 class DropdownMenu extends React.Component {
   constructor(props) {
@@ -25,12 +32,10 @@ class DropdownMenu extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault()
-    console.log('SELECTED LOCAL STATE', this.state.selectedSymp)
-    // const rightSymp = this.props.symptoms.filter(
-    //   symp => symp.name === this.selectedSymp
-    // )
-    console.log('ALL SYMPS ==>', this.props.symptoms)
-    // this.props.history.push('/symptoms/physical/${id}')
+    const symptom = this.props.symptoms.filter(
+      symp => symp.name === this.state.selectedSymp
+    )
+    this.props.history.push(`/symptoms/${symptom[0].category}/${symptom[0].id}`)
   }
 
   render() {
@@ -39,20 +44,21 @@ class DropdownMenu extends React.Component {
 
     return (
       <Container textAlign="center">
-        <h3>Choose from the symptoms below:</h3>
-        <span />
-        <Dropdown
-          onChange={this.handleChange}
-          placeholder="Select Symptom"
-          fluid
-          search
-          selection
-          options={forMenu}
-          value={this.state.value}
-        />
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Button content="Show me solutions!" />
-        </Form>
+        <Segment vertical>
+          <Header as="h2">Choose from the symptoms below:</Header>
+          <span />
+          <Select
+            onChange={this.handleChange}
+            placeholder="Select Symptom"
+            search
+            options={forMenu}
+            value={this.state.value}
+          />
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Button content="Show me solutions!" color="teal" size="big" />
+          </Form>
+        </Segment>
+        <AddForm />
       </Container>
     )
   }

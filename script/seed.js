@@ -40,8 +40,7 @@ async function seed() {
     Symptom.create({name: 'leakage', category: 'physical'}),
     Symptom.create({name: 'worsened focus', category: 'menemo'}),
     Symptom.create({name: 'self-consciousness', category: 'menemo'}),
-    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'}),
-
+    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'})
   ])
 
   const solutions = await Promise.all([
@@ -52,17 +51,18 @@ async function seed() {
     }),
     Solution.create({
       name: 'masturbation',
-      description: 'blah blah blah',
+      description: "Nature's painkiller ¯\\_(ツ)_/¯",
       likecount: 0
     }),
     Solution.create({
       name: 'avoid caffeine',
-      description: 'blah blah blah',
+      description:
+        "I'm a coffee addict, but I know it worsens my anxiety and exacerbates my cramps. So I try to cut back a bit when I'm on my period.",
       likecount: 0
     }),
     Solution.create({
       name: 'bubble bath',
-      description: 'blah blah blah',
+      description: 'Nothing relaxes me more. I go all out: bubbles, bath bombs, candles, good music, dim lights.',
       likecount: 0
     }),
     Solution.create({
@@ -72,7 +72,7 @@ async function seed() {
     }),
     Solution.create({
       name: 'iron supplement',
-      description: 'blah blah blah',
+      description: "I can become anemic during my period, so I try to remember to take an iron supplement to keep my energy levels up.",
       likecount: 0
     }),
     Solution.create({
@@ -87,7 +87,7 @@ async function seed() {
     }),
     Solution.create({
       name: 'indulge your cravings',
-      description: 'blah blah blah',
+      description: "I eat whatever I want and don't feel bad about it. It makes things a bit more bearable.",
       likecount: 0
     }),
     Solution.create({
@@ -107,17 +107,17 @@ async function seed() {
     }),
     Solution.create({
       name: 'avoid alcohol',
-      description: 'blah blah blah',
+      description: "'blah blah blah'",
       likecount: 0
     }),
     Solution.create({
       name: 'heating pad',
-      description: 'blah blah blah',
+      description: "agfa",
       likecount: 0
     }),
     Solution.create({
       name: 'stay hydrated',
-      description: 'blah blah blah',
+      description: "This is obviously something you should do all the time, but during my period it's sort of a mental thing as well: I imagine anything bad in my skin or my mind is getting flushed out",
       likecount: 0
     }),
     Solution.create({
@@ -132,19 +132,19 @@ async function seed() {
     }),
     Solution.create({
       name: 'painkillers',
-      description: 'blah blah blah',
+      description: "Over-the-counter painkillers tend to ease a wide range of pains and discomforts and help me go about my day as usual",
       likecount: 0
     }),
     Solution.create({
       name: 'stay in bed',
-      description: 'blah blah blah',
+      description: "If I can swing it, I stay in bed. Easier to do on the weekends of course, but I have a flexible work-from-home policy and I take full advantage when I'm on my period",
       likecount: 0
     }),
     Solution.create({
       name: 'write',
-      description: 'blah blah blah',
+      description: "I get pretty overcome by emotion of all sorts, and writing it down in a diary, or just as a note on my phone, help relieve me of the intensity and clears my mind",
       likecount: 0
-    }),
+    })
   ])
 
   const sympsol = await Promise.all([
