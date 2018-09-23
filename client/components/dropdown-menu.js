@@ -1,12 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {
-  Select,
-  Container,
-  Form,
-  Segment,
-  Header
-} from 'semantic-ui-react'
+import {Select, Container, Form, Segment, Header} from 'semantic-ui-react'
 import {fetchSymptomsFromDB} from '../store/symptoms'
 import solution from '../../utils'
 import AddForm from './add-form'

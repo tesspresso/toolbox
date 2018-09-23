@@ -61,3 +61,18 @@ router.post('/:type', async (req, res, next) => {
     next(error)
   }
 })
+
+// api/symptoms/:type/:sympId
+// adds a new solution
+router.post('/:type/:sympId', async (req, res, next) => {
+  const solution = {
+    name: req.body.name,
+    description: req.body.description,
+  }
+  try {
+    await Solution.create(solution)
+    res.sendStatus(201)
+  } catch (error) {
+    next(error)
+  }
+})

@@ -3,6 +3,7 @@ import axios from 'axios'
 // action strings
 const GOT_SOLUTIONS = 'GOT_SOLUTIONS'
 const GOT_SINGLE_SOLUTION = 'GOT_SINGLE_SOLUTION'
+const ADDED_SOLUTION = 'ADDED_SOLUTION'
 
 // action types
 const gotSolutions = solutions => {
@@ -15,6 +16,13 @@ const gotSolutions = solutions => {
 const gotUpdatedSolution = solution => {
   return {
     type: GOT_SINGLE_SOLUTION,
+    solution
+  }
+}
+
+const addedSolution = (solution) => {
+  return {
+    type: ADDED_SOLUTION,
     solution
   }
 }
@@ -36,6 +44,17 @@ export const updateLikeCount = (id, likecount) => {
     try {
       const {data: solution} = await axios.put(`/api/solutions/${id}`, likecount)
       dispatch(gotUpdatedSolution(solution))
+    } catch (error) {
+      console.error(error)
+    }
+  }
+}
+
+export const addNewSolution = (type, sympId, name, description) => {
+  return async dispatch => {
+    try {
+      const {data} = await axios.post(`/api/symptoms/${type}/${sympId}`, {type, sympId, name, description})
+      dispatch(addedSolution(data))
     } catch (error) {
       console.error(error)
     }

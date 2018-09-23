@@ -11,7 +11,8 @@ const Solution = db.define('solution', {
     allowNull: false
   },
   likecount: {
-    type: Sequelize.INTEGER
+    type: Sequelize.INTEGER,
+    defaultValue: 0
   }
 })
 
