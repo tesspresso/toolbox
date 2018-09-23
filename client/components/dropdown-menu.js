@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {Select, Container, Form, Segment, Header} from 'semantic-ui-react'
 import {fetchSymptomsFromDB} from '../store/symptoms'
 import solution from '../../utils'
-import AddForm from './add-form'
+import AddSymp from './add-symp'
 
 class DropdownMenu extends React.Component {
   constructor(props) {
@@ -52,7 +52,7 @@ class DropdownMenu extends React.Component {
             <Form.Button content="Show me solutions!" color="teal" size="big" />
           </Form>
         </Segment>
-        <AddForm />
+        <AddSymp />
       </Container>
     )
   }

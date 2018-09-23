@@ -20,7 +20,7 @@ const gotUpdatedSolution = solution => {
   }
 }
 
-const addedSolution = (solution) => {
+const addedSolution = solution => {
   return {
     type: ADDED_SOLUTION,
     solution
@@ -42,7 +42,10 @@ export const fetchSolutionsFromDB = (type, id) => {
 export const updateLikeCount = (id, likecount) => {
   return async dispatch => {
     try {
-      const {data: solution} = await axios.put(`/api/solutions/${id}`, likecount)
+      const {data: solution} = await axios.put(
+        `/api/solutions/${id}`,
+        likecount
+      )
       dispatch(gotUpdatedSolution(solution))
     } catch (error) {
       console.error(error)
@@ -53,7 +56,10 @@ export const updateLikeCount = (id, likecount) => {
 export const addNewSolution = (type, sympId, name, description) => {
   return async dispatch => {
     try {
-      const {data} = await axios.post(`/api/symptoms/${type}/${sympId}`, {type, sympId, name, description})
+      const {data} = await axios.post(`/api/symptoms/${type}/${sympId}`, {
+        name,
+        description
+      })
       dispatch(addedSolution(data))
     } catch (error) {
       console.error(error)
@@ -69,6 +75,8 @@ const solutions = (state = [], action) => {
     case GOT_SINGLE_SOLUTION: {
       return action.solution
     }
+    case ADDED_SOLUTION:
+      return [...state, action.solution]
     default: {
       return state
     }

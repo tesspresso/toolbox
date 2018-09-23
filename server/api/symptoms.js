@@ -1,5 +1,7 @@
 const router = require('express').Router()
+const db = require('../db')
 const {Symptom, Solution} = require('../db/models')
+const SympSol = db.model('symp_sol')
 module.exports = router
 
 // api/symptoms/:type
@@ -67,10 +69,14 @@ router.post('/:type', async (req, res, next) => {
 router.post('/:type/:sympId', async (req, res, next) => {
   const solution = {
     name: req.body.name,
-    description: req.body.description,
+    description: req.body.description
   }
   try {
-    await Solution.create(solution)
+    const newSolution = await Solution.create(solution)
+    await SympSol.create({
+      symptomId: req.params.sympId,
+      solutionId: newSolution.id
+    })
     res.sendStatus(201)
   } catch (error) {
     next(error)

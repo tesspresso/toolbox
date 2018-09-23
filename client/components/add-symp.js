@@ -11,7 +11,7 @@ import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import {addNewSymptom} from '../store/symptoms'
 
-class AddForm extends React.Component {
+class AddSymp extends React.Component {
   state = {symptom: '', modalOpen: false, submitted: false}
 
   handleChange = (e, {value}) => this.setState({symptom: value})
@@ -82,4 +82,4 @@ const mapDispatchToProps = dispatch => ({
   createSymptom: (type, symptom) => dispatch(addNewSymptom(type, symptom))
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(AddForm))
+export default withRouter(connect(null, mapDispatchToProps)(AddSymp))
