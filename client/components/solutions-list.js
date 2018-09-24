@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchSolutionsFromDB, updateLikeCount} from '../store/solutions'
 import AddSol from './add-sol'
-import {Card, Container, Button, Icon} from 'semantic-ui-react'
+import {Card, Container, Button, Icon, Divider} from 'semantic-ui-react'
 
 export class SolutionsList extends React.Component {
   async componentDidMount() {
@@ -52,6 +52,7 @@ export class SolutionsList extends React.Component {
             </Card>
           ))}
         </Card.Group>
+        <Divider/>
         <AddSol />
       </Container>
     )

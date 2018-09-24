@@ -21,26 +21,6 @@ async function seed() {
     })
   ])
 
-  const symptoms = await Promise.all([
-    Symptom.create({name: 'cramps', category: 'physical'}), //1
-    Symptom.create({name: 'sleeplessness', category: 'physical'}), //2
-    Symptom.create({name: 'high stress', category: 'menemo'}), //3
-    Symptom.create({name: 'loose bowels', category: 'physical'}), //4
-    Symptom.create({name: 'acne', category: 'physical'}), //5
-    Symptom.create({name: 'bloating', category: 'physical'}), //6
-    Symptom.create({name: 'heavy flow', category: 'physical'}), //7
-    Symptom.create({name: 'low energy', category: 'physical'}), //8
-    Symptom.create({name: 'increased libido', category: 'physical'}), //9
-    Symptom.create({name: 'headache', category: 'physical'}), //10
-    Symptom.create({name: 'heartburn', category: 'physical'}), //11
-    Symptom.create({name: 'nausea & vomiting', category: 'physical'}), //12
-    Symptom.create({name: 'cravings', category: 'physical'}), //13
-    Symptom.create({name: 'increased appetite', category: 'physical'}), //14
-    Symptom.create({name: 'worsened focus', category: 'menemo'}), //15
-    Symptom.create({name: 'self-consciousness', category: 'menemo'}), //16
-    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'}) //17
-  ])
-
   const solutions = await Promise.all([
     Solution.create({
       //1
@@ -182,6 +162,26 @@ async function seed() {
         'I get pretty overcome by emotion of all sorts, and writing my thoughts in a diary, or just as a note on my phone, helps relieve me of the intensity and clears my mind',
       likecount: 0
     })
+  ])
+
+  const symptoms = await Promise.all([
+    Symptom.create({name: 'cramps', category: 'physical'}), //1
+    Symptom.create({name: 'sleeplessness', category: 'physical'}), //2
+    Symptom.create({name: 'high stress', category: 'menemo'}), //3
+    Symptom.create({name: 'loose bowels', category: 'physical'}), //4
+    Symptom.create({name: 'acne', category: 'physical'}), //5
+    Symptom.create({name: 'bloating', category: 'physical'}), //6
+    Symptom.create({name: 'heavy flow', category: 'physical'}), //7
+    Symptom.create({name: 'low energy', category: 'physical'}), //8
+    Symptom.create({name: 'increased libido', category: 'physical'}), //9
+    Symptom.create({name: 'headache', category: 'physical'}), //10
+    Symptom.create({name: 'heartburn', category: 'physical'}), //11
+    Symptom.create({name: 'nausea & vomiting', category: 'physical'}), //12
+    Symptom.create({name: 'cravings', category: 'physical'}), //13
+    Symptom.create({name: 'increased appetite', category: 'physical'}), //14
+    Symptom.create({name: 'worsened focus', category: 'menemo'}), //15
+    Symptom.create({name: 'self-consciousness', category: 'menemo'}), //16
+    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'}) //17
   ])
 
   const sympsol = await Promise.all([

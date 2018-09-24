@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Select, Container, Form, Segment, Header} from 'semantic-ui-react'
+import {Select, Container, Form, Segment, Header, Divider} from 'semantic-ui-react'
 import {fetchSymptomsFromDB} from '../store/symptoms'
 import solution from '../../utils'
 import AddSymp from './add-symp'
@@ -40,7 +40,7 @@ class DropdownMenu extends React.Component {
       <Container textAlign="center">
         <Segment vertical>
           <Header as="h2">Choose from the symptoms below:</Header>
-          <span />
+          <Divider hidden/>
           <Select
             onChange={this.handleChange}
             placeholder="Select Symptom"
@@ -48,10 +48,12 @@ class DropdownMenu extends React.Component {
             options={forMenu}
             value={this.state.value}
           />
+          <Divider hidden/>
           <Form onSubmit={this.handleSubmit}>
-            <Form.Button content="Show me solutions!" color="teal" size="big" />
+            <Form.Button content="Show me solutions!" color="teal" size="medium" />
           </Form>
         </Segment>
+        <Divider hidden/>
         <AddSymp />
       </Container>
     )
