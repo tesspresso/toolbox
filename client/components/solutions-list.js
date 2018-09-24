@@ -18,16 +18,6 @@ export class SolutionsList extends React.Component {
     const solId = data.value
     const {type, symptomId} = this.props.match.params
     likeCount++
-    console.log(
-      'TYPE=>',
-      type,
-      'SYMPID=>',
-      symptomId,
-      'SOLID=>',
-      solId,
-      'LIKECOUNT=>',
-      likeCount
-    )
     await this.props.updateLike(type, symptomId, solId, likeCount)
     await this.props.getSolutions(
       this.props.match.params.type,
@@ -41,24 +31,29 @@ export class SolutionsList extends React.Component {
       <Container textAlign="center">
         <Card.Group itemsPerRow={3}>
           {solutions.map(sol => (
-            <Card key={sol.id}>
-              <Card.Content>
-                <Card.Header content={sol.name} />
-                <Card.Description textAlign="left" content={sol.description} />
-              </Card.Content>
-              <Button
-                onClick={this.handleClick}
-                value={sol.id}
-                animated
-                attached="bottom"
-                color="google plus"
-              >
-                <Button.Content visible>
-                  <Icon name="heart" />
-                </Button.Content>
-                <Button.Content hidden>{sol.likecount}</Button.Content>
-              </Button>
-            </Card>
+            <React.Fragment key={sol.id}>
+              <Card>
+                <Card.Content>
+                  <Card.Header content={sol.name} />
+                  <Card.Description
+                    textAlign="left"
+                    content={sol.description}
+                  />
+                </Card.Content>
+                <Button
+                  onClick={this.handleClick}
+                  value={sol.id}
+                  animated
+                  attached="bottom"
+                  color="google plus"
+                >
+                  <Button.Content visible>
+                    <Icon name="heart" />
+                  </Button.Content>
+                  <Button.Content hidden>{sol.likecount}</Button.Content>
+                </Button>
+              </Card>
+            </React.Fragment>
           ))}
         </Card.Group>
         <AddSol />

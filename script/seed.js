@@ -22,127 +22,164 @@ async function seed() {
   ])
 
   const symptoms = await Promise.all([
-    Symptom.create({name: 'cramps', category: 'physical'}),
-    Symptom.create({name: 'sleeplessness', category: 'physical'}),
-    Symptom.create({name: 'high stress', category: 'menemo'}),
-    Symptom.create({name: 'loose bowels', category: 'physical'}),
-    Symptom.create({name: 'acne', category: 'physical'}),
-    Symptom.create({name: 'bloating', category: 'physical'}),
-    Symptom.create({name: 'heavy flow', category: 'physical'}),
-    Symptom.create({name: 'low energy', category: 'physical'}),
-    Symptom.create({name: 'increased libido', category: 'physical'}),
-    Symptom.create({name: 'headache', category: 'physical'}),
-    Symptom.create({name: 'heartburn', category: 'physical'}),
-    Symptom.create({name: 'nausea & vomiting', category: 'physical'}),
-    Symptom.create({name: 'sore breasts', category: 'physical'}),
-    Symptom.create({name: 'cravings', category: 'physical'}),
-    Symptom.create({name: 'increased appetite', category: 'physical'}),
-    Symptom.create({name: 'leakage', category: 'physical'}),
-    Symptom.create({name: 'worsened focus', category: 'menemo'}),
-    Symptom.create({name: 'self-consciousness', category: 'menemo'}),
-    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'})
+    Symptom.create({name: 'cramps', category: 'physical'}), //1
+    Symptom.create({name: 'sleeplessness', category: 'physical'}), //2
+    Symptom.create({name: 'high stress', category: 'menemo'}), //3
+    Symptom.create({name: 'loose bowels', category: 'physical'}), //4
+    Symptom.create({name: 'acne', category: 'physical'}), //5
+    Symptom.create({name: 'bloating', category: 'physical'}), //6
+    Symptom.create({name: 'heavy flow', category: 'physical'}), //7
+    Symptom.create({name: 'low energy', category: 'physical'}), //8
+    Symptom.create({name: 'increased libido', category: 'physical'}), //9
+    Symptom.create({name: 'headache', category: 'physical'}), //10
+    Symptom.create({name: 'heartburn', category: 'physical'}), //11
+    Symptom.create({name: 'nausea & vomiting', category: 'physical'}), //12
+    Symptom.create({name: 'cravings', category: 'physical'}), //13
+    Symptom.create({name: 'increased appetite', category: 'physical'}), //14
+    Symptom.create({name: 'worsened focus', category: 'menemo'}), //15
+    Symptom.create({name: 'self-consciousness', category: 'menemo'}), //16
+    Symptom.create({name: 'sensitivity & teariness', category: 'menemo'}) //17
   ])
 
   const solutions = await Promise.all([
     Solution.create({
-      name: 'edibles',
-      description: 'blah blah blah',
+      //1
+      name: 'have an edible',
+      description:
+        'If my period falls on the weekend, I have an edible in the morning and spend the day relaxing at home and watching movies. It helps with physical discomfort, relaxes me, and helps to fast-forward through storm.',
       likecount: 0
     }),
     Solution.create({
-      name: 'masturbation',
-      description: "Nature's painkiller ¯\\_(ツ)_/¯",
+      //2
+      name: 'orgasm',
+      description:
+        "Nature's painkiller ¯\\_(ツ)_/¯ But really, orgasms help you deal with all sorts of physical pain, as well as anxiety and stress. Sometimes sex lightens flow (and for some people it can stop their period entirely).",
       likecount: 0
     }),
     Solution.create({
+      //3
       name: 'avoid caffeine',
       description:
-        "I'm a coffee addict, but I know it worsens my anxiety and exacerbates my cramps. So I try to cut back a bit when I'm on my period.",
+        "I'm a coffee addict, but I know it worsens my anxiety and exacerbates my cramps, so I try to cut back a bit when I'm on my period.",
       likecount: 0
     }),
     Solution.create({
-      name: 'bubble bath',
-      description: 'Nothing relaxes me more. I go all out: bubbles, bath bombs, candles, good music, dim lights.',
+      //4
+      name: 'take a bath',
+      description:
+        'This is my go-to stress reliever. I go all out: bubbles, bath bombs, candles, good music, dim lights. I always feel better, or at least more relaxed, afterwards',
       likecount: 0
     }),
     Solution.create({
-      name: 'iron-rich foods',
-      description: 'blah blah blah',
+      //5
+      name: 'go for iron-rich foods',
+      description:
+        'I do my best to eat foods that are high in iron to keep my focus and energy levels up. Things like dark leafy greens, legumes, oysters...even dark chocolate!',
       likecount: 0
     }),
     Solution.create({
-      name: 'iron supplement',
-      description: "I can become anemic during my period, so I try to remember to take an iron supplement to keep my energy levels up.",
+      //6
+      name: 'take an iron supplement',
+      description:
+        'I can become anemic during my period, so I try to remember to take an iron supplement to keep myself feeling mentally and physically normal.',
       likecount: 0
     }),
     Solution.create({
+      //7
       name: 'exercise',
-      description: 'blah blah blah',
+      description:
+        "It's HARD to get myself to exercise when I'm on my period, but I always end up feeling better. Often I'll just do a workout at home, and will go for something like yoga over running. I never regret it afterwards -- My mood and stress levels in particular really shift.",
       likecount: 0
     }),
     Solution.create({
-      name: 'alone time',
-      description: 'blah blah blah',
+      //8
+      name: 'find alone time',
+      description:
+        'Sometimes I just feel a mess and carving out alone time is the best option. It helps me recharge and avoid triggers that might stress me out more.',
       likecount: 0
     }),
     Solution.create({
+      //9
       name: 'indulge your cravings',
-      description: "I eat whatever I want and don't feel bad about it. It makes things a bit more bearable.",
+      description:
+        "I indulge, and not just in terms of food. I eat whatever I want and don't feel bad about it, binge-watch a series on Netflix, or whatever else comes to mind. Allowing myself that guilt-free freedom makes things a bit more bearable.",
       likecount: 0
     }),
     Solution.create({
-      name: 'ocean noises',
-      description: 'blah blah blah',
+      //10
+      name: 'listen to ocean noises',
+      description:
+        "It sounds cheesy, but ocean noises relax me sooo much. Sometimes I put it on my headphones at work. Listening also puts my mind to rest when I'm falling asleep",
       likecount: 0
     }),
     Solution.create({
-      name: 'extra sleep',
-      description: 'blah blah blah',
+      //11
+      name: 'get extra sleep',
+      description:
+        "Making myself get up early, and adjusting my schedule so that I can wake up a bit later than usual can really impact my day. I always try to schedule for an hour or so of extra sleep while I'm on my period.",
       likecount: 0
     }),
     Solution.create({
-      name: 'herbal tea',
-      description: 'blah blah blah',
+      //12
+      name: 'drink herbal tea',
+      description:
+        "I drink herbal tea (usually camomile or ginger) constantly when I'm on my period. The smell and the warth are soothing and eases any stomach issues I might be having.",
       likecount: 0
     }),
     Solution.create({
+      //13
       name: 'avoid alcohol',
-      description: "'blah blah blah'",
+      description:
+        "Alcohol doesn't do you any favors, so I found it's best to just ban myself from it entirely during my period. It's just a good strategy to avoid exacerbating any discomforts you might already be feeling.",
       likecount: 0
     }),
     Solution.create({
-      name: 'heating pad',
-      description: "agfa",
+      //14
+      name: 'use a heating pad',
+      description:
+        'I get horrific cramps, and a heating pad both helps the pain and is super relaxing.',
       likecount: 0
     }),
     Solution.create({
+      //15
       name: 'stay hydrated',
-      description: "This is obviously something you should do all the time, but during my period it's sort of a mental thing as well: I imagine anything bad in my skin or my mind is getting flushed out",
+      description:
+        "Obviously we should all be drinking adequate water all the time -- it helps with skin, headaches, cravings, everything. But during my period it's sort of a mental thing as well: I imagine anything bad in my mind -- negativity, anxieties, etc. -- is getting flushed out",
       likecount: 0
     }),
     Solution.create({
+      //16
       name: 'use a tracking app',
-      description: 'blah blah blah',
+      description:
+        "I use the app Clue, and it has changed my life. Just being able to look at my phone and see that it's totally normal for me to be feeling this way or to be having these thoughts puts me at ease. It's an important reminder that this is all normal and temporary. But it also indicates if something abnormal is happening, and makes it easy to share the data with your doctor.",
       likecount: 0
     }),
     Solution.create({
-      name: 'healthy foods',
-      description: 'blah blah blah',
+      //17
+      name: 'eat healthy foods',
+      description:
+        "I find that being extra conscious about what I put in my body can really help my general well-being. I get cravings for sure, but try to avoid ones that would take a toll on my body since it's already feeling off",
       likecount: 0
     }),
     Solution.create({
-      name: 'painkillers',
-      description: "Over-the-counter painkillers tend to ease a wide range of pains and discomforts and help me go about my day as usual",
+      //18
+      name: 'take painkillers',
+      description:
+        'Over-the-counter painkillers take the edge off a wide range of pains and discomforts, and help me go about my day as usual',
       likecount: 0
     }),
     Solution.create({
+      //19
       name: 'stay in bed',
-      description: "If I can swing it, I stay in bed. Easier to do on the weekends of course, but I have a flexible work-from-home policy and I take full advantage when I'm on my period",
+      description:
+        "If I can swing it, I stay in bed. Easier to do on the weekends of course, but I have a flexible work-from-home policy and I take full advantage when I'm on my period",
       likecount: 0
     }),
     Solution.create({
+      //20
       name: 'write',
-      description: "I get pretty overcome by emotion of all sorts, and writing it down in a diary, or just as a note on my phone, help relieve me of the intensity and clears my mind",
+      description:
+        'I get pretty overcome by emotion of all sorts, and writing my thoughts in a diary, or just as a note on my phone, helps relieve me of the intensity and clears my mind',
       likecount: 0
     })
   ])
@@ -151,11 +188,133 @@ async function seed() {
     SympSol.create({symptomId: 1, solutionId: 1}),
     SympSol.create({symptomId: 1, solutionId: 2}),
     SympSol.create({symptomId: 1, solutionId: 3}),
+    SympSol.create({symptomId: 1, solutionId: 13}),
+    SympSol.create({symptomId: 1, solutionId: 14}),
+    SympSol.create({symptomId: 1, solutionId: 18}),
+    SympSol.create({symptomId: 1, solutionId: 19}),
+
     SympSol.create({symptomId: 2, solutionId: 1}),
+    SympSol.create({symptomId: 2, solutionId: 2}),
     SympSol.create({symptomId: 2, solutionId: 3}),
+    SympSol.create({symptomId: 2, solutionId: 4}),
+    SympSol.create({symptomId: 2, solutionId: 5}),
+    SympSol.create({symptomId: 2, solutionId: 6}),
+    SympSol.create({symptomId: 2, solutionId: 7}),
+    SympSol.create({symptomId: 2, solutionId: 10}),
+    SympSol.create({symptomId: 2, solutionId: 12}),
+    SympSol.create({symptomId: 2, solutionId: 20}),
+
     SympSol.create({symptomId: 3, solutionId: 1}),
     SympSol.create({symptomId: 3, solutionId: 2}),
-    SympSol.create({symptomId: 3, solutionId: 3})
+    SympSol.create({symptomId: 3, solutionId: 3}),
+    SympSol.create({symptomId: 3, solutionId: 4}),
+    SympSol.create({symptomId: 3, solutionId: 7}),
+    SympSol.create({symptomId: 3, solutionId: 8}),
+    SympSol.create({symptomId: 3, solutionId: 10}),
+    SympSol.create({symptomId: 3, solutionId: 12}),
+    SympSol.create({symptomId: 3, solutionId: 16}),
+    SympSol.create({symptomId: 3, solutionId: 20}),
+
+    SympSol.create({symptomId: 4, solutionId: 3}),
+    SympSol.create({symptomId: 4, solutionId: 12}),
+    SympSol.create({symptomId: 4, solutionId: 13}),
+    SympSol.create({symptomId: 4, solutionId: 15}),
+    SympSol.create({symptomId: 4, solutionId: 17}),
+    SympSol.create({symptomId: 4, solutionId: 19}),
+
+    SympSol.create({symptomId: 5, solutionId: 7}),
+    SympSol.create({symptomId: 5, solutionId: 11}),
+    SympSol.create({symptomId: 5, solutionId: 12}),
+    SympSol.create({symptomId: 5, solutionId: 13}),
+    SympSol.create({symptomId: 5, solutionId: 15}),
+    SympSol.create({symptomId: 5, solutionId: 17}),
+
+    SympSol.create({symptomId: 6, solutionId: 7}),
+    SympSol.create({symptomId: 6, solutionId: 12}),
+    SympSol.create({symptomId: 6, solutionId: 13}),
+    SympSol.create({symptomId: 6, solutionId: 15}),
+    SympSol.create({symptomId: 6, solutionId: 17}),
+
+    SympSol.create({symptomId: 7, solutionId: 2}),
+    SympSol.create({symptomId: 7, solutionId: 5}),
+    SympSol.create({symptomId: 7, solutionId: 6}),
+    SympSol.create({symptomId: 7, solutionId: 7}),
+    SympSol.create({symptomId: 7, solutionId: 11}),
+    SympSol.create({symptomId: 7, solutionId: 16}),
+    SympSol.create({symptomId: 7, solutionId: 19}),
+
+    SympSol.create({symptomId: 8, solutionId: 5}),
+    SympSol.create({symptomId: 8, solutionId: 6}),
+    SympSol.create({symptomId: 8, solutionId: 8}),
+    SympSol.create({symptomId: 8, solutionId: 11}),
+    SympSol.create({symptomId: 8, solutionId: 17}),
+    SympSol.create({symptomId: 8, solutionId: 19}),
+
+    SympSol.create({symptomId: 9, solutionId: 2}),
+    SympSol.create({symptomId: 9, solutionId: 4}),
+    SympSol.create({symptomId: 9, solutionId: 7}),
+    SympSol.create({symptomId: 9, solutionId: 8}),
+    SympSol.create({symptomId: 9, solutionId: 9}),
+
+    SympSol.create({symptomId: 10, solutionId: 1}),
+    SympSol.create({symptomId: 10, solutionId: 2}),
+    SympSol.create({symptomId: 10, solutionId: 4}),
+    SympSol.create({symptomId: 10, solutionId: 5}),
+    SympSol.create({symptomId: 10, solutionId: 6}),
+    SympSol.create({symptomId: 10, solutionId: 11}),
+    SympSol.create({symptomId: 10, solutionId: 13}),
+    SympSol.create({symptomId: 10, solutionId: 15}),
+    SympSol.create({symptomId: 10, solutionId: 17}),
+    SympSol.create({symptomId: 10, solutionId: 18}),
+
+    SympSol.create({symptomId: 11, solutionId: 3}),
+    SympSol.create({symptomId: 11, solutionId: 12}),
+    SympSol.create({symptomId: 11, solutionId: 13}),
+    SympSol.create({symptomId: 11, solutionId: 15}),
+    SympSol.create({symptomId: 11, solutionId: 17}),
+
+    SympSol.create({symptomId: 12, solutionId: 1}),
+    SympSol.create({symptomId: 12, solutionId: 3}),
+    SympSol.create({symptomId: 12, solutionId: 11}),
+    SympSol.create({symptomId: 12, solutionId: 12}),
+    SympSol.create({symptomId: 12, solutionId: 13}),
+    SympSol.create({symptomId: 12, solutionId: 15}),
+    SympSol.create({symptomId: 12, solutionId: 16}),
+    SympSol.create({symptomId: 12, solutionId: 17}),
+    SympSol.create({symptomId: 12, solutionId: 19}),
+
+    SympSol.create({symptomId: 13, solutionId: 5}),
+    SympSol.create({symptomId: 13, solutionId: 6}),
+    SympSol.create({symptomId: 13, solutionId: 7}),
+    SympSol.create({symptomId: 13, solutionId: 9}),
+    SympSol.create({symptomId: 13, solutionId: 12}),
+    SympSol.create({symptomId: 13, solutionId: 15}),
+
+    SympSol.create({symptomId: 14, solutionId: 5}),
+    SympSol.create({symptomId: 14, solutionId: 7}),
+    SympSol.create({symptomId: 14, solutionId: 12}),
+    SympSol.create({symptomId: 14, solutionId: 15}),
+    SympSol.create({symptomId: 14, solutionId: 17}),
+
+    SympSol.create({symptomId: 15, solutionId: 5}),
+    SympSol.create({symptomId: 15, solutionId: 6}),
+    SympSol.create({symptomId: 15, solutionId: 7}),
+    SympSol.create({symptomId: 15, solutionId: 11}),
+    SympSol.create({symptomId: 15, solutionId: 16}),
+    SympSol.create({symptomId: 15, solutionId: 17}),
+
+    SympSol.create({symptomId: 16, solutionId: 3}),
+    SympSol.create({symptomId: 16, solutionId: 7}),
+    SympSol.create({symptomId: 16, solutionId: 8}),
+    SympSol.create({symptomId: 16, solutionId: 16}),
+    SympSol.create({symptomId: 16, solutionId: 20}),
+
+    SympSol.create({symptomId: 17, solutionId: 4}),
+    SympSol.create({symptomId: 17, solutionId: 7}),
+    SympSol.create({symptomId: 17, solutionId: 8}),
+    SympSol.create({symptomId: 17, solutionId: 11}),
+    SympSol.create({symptomId: 17, solutionId: 16}),
+    SympSol.create({symptomId: 17, solutionId: 20})
   ])
 
   console.log(`seeded ${users.length} users`)

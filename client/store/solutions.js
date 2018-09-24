@@ -73,7 +73,7 @@ const solutions = (state = [], action) => {
       return action.solutions
     }
     case GOT_SINGLE_SOLUTION: {
-      return action.solution
+      return [...state, action.solution]
     }
     case ADDED_SOLUTION:
       return [...state, action.solution]

@@ -60,8 +60,8 @@ router.post('/:type', async (req, res, next) => {
     category: req.body.type
   }
   try {
-    await Symptom.create(symptom)
-    res.sendStatus(201)
+    const newSymp = await Symptom.create(symptom)
+    res.status(201).json(newSymp)
   } catch (error) {
     next(error)
   }
@@ -80,7 +80,7 @@ router.post('/:type/:sympId', async (req, res, next) => {
       symptomId: req.params.sympId,
       solutionId: newSolution.id
     })
-    res.sendStatus(201)
+    res.status(201).json(newSolution)
   } catch (error) {
     next(error)
   }
