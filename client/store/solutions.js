@@ -73,7 +73,9 @@ const solutions = (state = [], action) => {
       return action.solutions
     }
     case GOT_SINGLE_SOLUTION: {
-      return [...state, action.solution]
+      const newState = [...state].filter(sol => sol.id !== action.solution.id)
+      newState.push(action.solution)
+      return newState
     }
     case ADDED_SOLUTION:
       return [...state, action.solution]

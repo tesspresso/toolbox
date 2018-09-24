@@ -46,7 +46,7 @@ router.put('/:type/:symptomId/', async (req, res, next) => {
     }
     const solution = await Solution.findById(req.body.solId)
     await solution.update(updateInfo)
-    res.sendStatus(202)
+    res.status(202).json(solution)
   } catch (err) {
     next(err)
   }
